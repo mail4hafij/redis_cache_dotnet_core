@@ -1,6 +1,6 @@
 # Redis Cache 
 
-### Install redis stach on docker
+### Install redis stack on docker
 
 https://redis.io/docs/getting-started/install-stack/docker/
 
