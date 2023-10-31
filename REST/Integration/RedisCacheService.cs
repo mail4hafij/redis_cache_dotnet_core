@@ -25,16 +25,16 @@ namespace REST.Integration
             return await Task.FromResult<T?>(default);
         }
 
-        public async void SetAsync<T>(string key, T obj)
+        public async Task<bool> SetAsync<T>(string key, T obj)
         {
             var db = _redisMultiplexer.GetDatabase();
-            await db.StringSetAsync(key, JsonConvert.SerializeObject(obj));
+            return await db.StringSetAsync(key, JsonConvert.SerializeObject(obj));
         }
 
-        public async void RemoveAsync(string key)
+        public async Task<bool> RemoveAsync(string key)
         {
             var db = _redisMultiplexer.GetDatabase();
-            await db.KeyDeleteAsync(key);
+            return await db.KeyDeleteAsync(key);
         }
     }
 }
